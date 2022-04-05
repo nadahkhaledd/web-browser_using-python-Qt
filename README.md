@@ -1,4 +1,4 @@
-# web-browser_using-python-Qt
+# Web browser using Python Qt
 
 ### another part in my journey of practicing python
 
