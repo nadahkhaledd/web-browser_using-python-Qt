@@ -17,13 +17,14 @@ class App(QFrame):
         self.tabBar = None
         self.layout = None
         self.setWindowTitle("web browser")
-        self.setBaseSize(1366, 768)
         self.createApp()
+        self.setBaseSize(1366, 768)
 
     def createApp(self):
         self.layout = QVBoxLayout()
 
         self.tabBar = QTabBar(movable=True, tabsClosable=True)
+        self.tabBar.tabCloseRequested.connect(self.closeTab)
         self.tabBar.addTab("tab1")
         self.tabBar.addTab("tab2")
         self.tabBar.setCurrentIndex(0)
@@ -32,6 +33,10 @@ class App(QFrame):
         self.setLayout(self.layout)
 
         self.show()
+
+
+    def closeTab(self, i):
+        self.tabBar.removeTab(i)
 
 
 if __name__ == "__main__":
