@@ -10,6 +10,14 @@ from PyQt5.QtGui import QIcon, QImage, QWindow
 from PyQt5.QtCore import *
 
 
+class AddressBar(QLineEdit):
+    def __init__(self):
+        super().__init__()
+
+    def mousePressEvent(self, e):
+        self.selectAll()
+
+
 class App(QFrame):
 
     def __init__(self):
@@ -29,7 +37,15 @@ class App(QFrame):
         self.tabBar.addTab("tab2")
         self.tabBar.setCurrentIndex(0)
 
+        self.toolbar = QWidget()
+        self.toolbarLayout = QHBoxLayout()
+        self.addressBar = AddressBar()
+
+        self.toolbar.setLayout(self.toolbarLayout)
+        self.toolbarLayout.addWidget(self.addressBar)
+
         self.layout.addWidget(self.tabBar)
+        self.layout.addWidget(self.toolbar)
         self.setLayout(self.layout)
 
         self.show()
