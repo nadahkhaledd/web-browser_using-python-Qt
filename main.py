@@ -22,8 +22,6 @@ class App(QFrame):
 
     def __init__(self):
         super().__init__()
-        self.tabBar = None
-        self.layout = None
         self.setWindowTitle("web browser")
         self.createApp()
         self.setBaseSize(1366, 768)
