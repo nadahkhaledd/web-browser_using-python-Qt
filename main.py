@@ -46,8 +46,15 @@ class App(QFrame):
         self.toolbar.setLayout(self.toolbarLayout)
         self.toolbarLayout.addWidget(self.addressBar)
 
+        # set main view
+        self.container = QWidget()
+        self.container.layout = QStackedLayout()
+        self.container.setLayout(self.container.layout)
+
         self.layout.addWidget(self.tabBar)
         self.layout.addWidget(self.toolbar)
+        self.layout.addWidget(self.container)
+
         self.setLayout(self.layout)
 
         self.show()
